@@ -1,0 +1,287 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(to bottom, #881882, #ac7ba3); /* Cambia los colores aquí */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+}
+
+/* Estilo para la etiqueta de los creadores */
+.creators {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 16px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para el botón de inicio */
+.start-button {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    background-color: #b915b1b5;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.start-button:hover {
+    background-color: #da19f4;
+}
+
+.contenedor {
+    width: 1020px;
+    height: 280px;
+    margin: 0 auto;
+    position: relative;
+    background: linear-gradient(#b7d6c7, transparent) #ffe2d1;
+    transition: background-color 1s linear;
+    overflow: hidden;
+    transition: background-color 0.5s ease-in-out;
+    border-radius: 15px; /* Ajusta el valor según tus preferencias */
+}
+
+.mediodia {
+    background-color: #dfd32bd4;
+}
+
+.tarde {
+    background-color: #d0881edc;
+}
+
+.noche {
+    background-color: #2a2935;
+}
+
+.dino {
+    width: 84px;
+    height: 84px;
+    position: absolute;
+    bottom: 22px;
+    left: 42px;
+    z-index: 2;
+    background: url(img/dino.png) repeat-x 0px 0px;
+    background-size: 336px 84px;
+    background-position-x: 0px;
+}
+
+.dino-corriendo {
+    animation: animarDino 0.25s steps(2) infinite;
+}
+
+.dino-estrellado {
+    background-position-x: -252px;
+}
+
+.suelo {
+    width: 200%;
+    height: 42px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(img/suelo.png) repeat-x 0px 0px;
+    background-size: 50% 42px;
+}
+
+.cactus{
+    width: 46px;
+    height: 96px;
+    position: absolute;
+    bottom: 16px;
+    left: 600px;
+    z-index: 1;
+    background: url(img/cactus1.png) no-repeat;
+}
+
+.cactus2{
+    width: 98px;
+    height: 66px;
+    
+    background: url(img/cactus2.png) no-repeat;
+}
+
+.cactus3 {
+    width: 98px;
+    height: 66px;
+background: url(img/cactus3.png) no-repeat;
+}
+
+.cactus4 {
+width: 98px;
+    height: 66px;
+background: url(img/cactus4.png) no-repeat;
+}
+
+
+.nube{
+    width: 92px;
+    height: 26px;
+    position: absolute;
+    z-index: 0;
+    background: url(img/nube.png) no-repeat;
+    background-size: 92px 26px;
+}
+
+.nube1 {
+    width: 92px;
+    height: 26px;
+    position: absolute;
+    z-index: 0;
+    background: url(img/nube1.png) no-repeat;
+    background-size: 92px 26px;
+    
+} 
+
+
+.meta {
+    width: 46px;
+    height: 96px; /* Mismo valor que la altura del cactus */
+    position: absolute;
+    bottom: 16px;
+    left: 600px;
+    z-index: 1;
+    background: url(img/meta.png) no-repeat;
+    /* Otros estilos específicos para la imagen "meta.png" */
+}
+
+.score{
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    z-index: 10;
+    color: #dacd21;
+    font-family: Verdana;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.game-over {
+    display: none;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 130px;
+    font-family: Verdana, sans-serif;
+    font-weight: 700;
+    animation: cambioColor 2s infinite alternate; /* Animación de cambio de color */
+}
+
+@keyframes cambioColor {
+    0% {
+        color: #9b6042; /* Color inicial */
+    }
+    100% {
+        color: #ff0000; /* Color final (rojo en este ejemplo) */
+    }
+}
+
+@keyframes animarDino{
+    from{
+        background-position-x: -84px;
+    }
+    to{
+        background-position-x: -252px;
+    }
+}
+
+/* Agregamos el estilo para ocultar el botón y la etiqueta al iniciar el juego */
+.game-started .creators,
+.game-started .start-button {
+    display: none;
+}
+
+/* Estilo para el contador de distancia */
+.distance-count {
+    width: auto;
+    height: 30px;
+    position: absolute;
+    top: 5px;
+    right: 70px; /* Mover 2 cm (20px) a la derecha */
+    z-index: 10;
+    color: #dacd21;
+    font-family: Verdana;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center; /* Centrar horizontalmente */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
+}
+
+
+
+.congratulations {
+
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+.congratulations h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.congratulations p {
+    font-size: 18px;
+    color: #666;
+}
+@keyframes floatInAir {
+    0% {
+        transform: translate(-50%, -50%) translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Nueva clase para las burbujas */
+.burbuja-grande {
+    width: 40px; /* Ancho de las burbujas */
+    height: 40px; /* Altura de las burbujas */
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5); /* Color de las burbujas */
+    border-radius: 50%; /* Forma circular para las burbujas */
+    animation: floatInAir 60s infinite; /* Animación para que las burbujas floten */
+    opacity: 0; /* Inicialmente, las burbujas son transparentes */
+}
+
+/* Agregamos un estilo para las burbujas en la parte de atrás */
+.burbuja-grande.back {
+    left: 50%; /* Posición inicial centrada horizontalmente */
+    bottom: -50px; /* Posición inicial más por debajo del contenedor */
+}
+
+/* Agregamos un estilo para las burbujas en la parte delantera */
+.burbuja-grande.front {
+    left: 50%; /* Posición inicial centrada horizontalmente */
+    bottom: -50px; /* Posición inicial más por debajo del contenedor */
+    z-index: 3; /* Por encima del dinosaurio y los cactus */
+}
